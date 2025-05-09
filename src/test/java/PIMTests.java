@@ -90,7 +90,7 @@ public class PIMTests {
     @Test(testName = "add Employee"/*,dependsOnMethods = "resetFields"*/, priority = 7)
     public void addEmployee() throws IOException {
         PIMPage.clickAddButton();
-        PIMPage.addEmployeeFields("John", "Doe", "123456789");
+        PIMPage.addEmployeeFields("John", "Doe", "1234");
         PIMPage.clickAddButton();
         //Assert.assertTrue( PIMPage.getAddEmployeeHeader().isDisplayed(), "Add Employee header should be visible after adding employee");
         saveScreenshot("screenshotAddEmployee.png");

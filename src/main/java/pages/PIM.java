@@ -56,6 +56,7 @@ public class PIM {
     public void typeEmployeeName(String name) {
         waitForElementToBeVisible(employeeNameField);
         PIMDriver.findElement(employeeNameField).sendKeys(name);
+
     }
     public void typeEmployeeId(String id) {
         waitForElementToBeVisible(employeeIdField);
