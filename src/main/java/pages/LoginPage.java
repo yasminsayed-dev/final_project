@@ -67,9 +67,9 @@ public class LoginPage {
         return new PIM(loginDriver);
     }
 
-    public Performance clickPerformanceModule() {
+    public PerformancePage clickPerformanceModule() {
         WebElement performModule = waitForElementToBeClickable(performaceModule, 15);
         performModule.click();
-        return new Performance(loginDriver);
+        return new PerformancePage(loginDriver);
     }
     }
