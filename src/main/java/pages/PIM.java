@@ -45,11 +45,6 @@ public class PIM {
     //Actions
 
 
-
-
-
-
-
     public WebElement getEmployeeInfoHeader() {
         waitForElementToBeVisible(employeeInfoHeader);
         return PIMDriver.findElement(employeeInfoHeader);

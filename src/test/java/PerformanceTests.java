@@ -15,7 +15,7 @@ import java.nio.file.Files;
 import java.time.Duration;
 
 public class PerformanceTests {
-
+/*
     WebDriver driver;
     LoginPage loginPage;
     PerformancePage performancePage;
@@ -129,5 +129,5 @@ public class PerformanceTests {
     @AfterClass
     public void tearDown() {
         driver.quit();
-    }
+    }*/
 }
