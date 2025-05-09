@@ -16,6 +16,7 @@ public class LoginPage {
     By passwordLocator=By.name("password");
     By buttonLocator=By.cssSelector("button[type='submit']");
     By PIMModule=By.xpath("//span[text()='PIM']");
+    By performaceModule=By.xpath("//span[text()='performance']");
     //constructor
     public LoginPage(WebDriver driver) {
         loginDriver = driver;
@@ -53,5 +54,9 @@ public class LoginPage {
         return new PIM(loginDriver);
     }
 
-    }
+    public performance clickPerformanceModule() {
+        loginDriver.findElement(performanceModule).click();
+        return new performance(loginDriver);
 
+    }
+    }
