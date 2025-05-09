@@ -32,30 +32,44 @@ public class LoginPage {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }*/
 
+    private WebElement waitForElementToBeClickable(By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(loginDriver, Duration.ofSeconds(timeoutSeconds));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    private WebElement waitForElementToBeVisible(By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(loginDriver, Duration.ofSeconds(timeoutSeconds));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     public void typeUsername(String username) {
 
-        loginDriver.findElement(userNameLocator).sendKeys(username);
+        WebElement usernameField = waitForElementToBeVisible(userNameLocator, 15);
+        usernameField.sendKeys(username);
     }
 
     public void typePassword(String password) {
 
-        loginDriver.findElement(this.passwordLocator).sendKeys(password);
+        WebElement passwordField = waitForElementToBeVisible(passwordLocator, 15);
+        passwordField.sendKeys(password);
     }
 
 
     public void clickLogin() {
 
-        loginDriver.findElement(buttonLocator).click();
+        WebElement loginButton = waitForElementToBeClickable(buttonLocator, 15);
+        loginButton.click();
     }
 
     public PIM clickPIMModule() {
-        loginDriver.findElement(PIMModule).click();
+        WebElement pimModule = waitForElementToBeClickable(PIMModule, 15);
+        pimModule.click();
         return new PIM(loginDriver);
     }
 
     public Performance clickPerformanceModule() {
-        loginDriver.findElement(performaceModule).click();
+        WebElement performModule = waitForElementToBeClickable(performaceModule, 15);
+        performModule.click();
         return new Performance(loginDriver);
     }
     }
