@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.time.Duration;
 
-public class OrangeHrmTests {
+public class PIMTests {
 
     WebDriver driver;
     LoginPage loginPage;
