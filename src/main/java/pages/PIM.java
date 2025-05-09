@@ -44,32 +44,46 @@ public class PIM {
     }
     //Actions
 
+
+
+
+
+
+
     public WebElement getEmployeeInfoHeader() {
+        waitForElementToBeVisible(employeeInfoHeader);
         return PIMDriver.findElement(employeeInfoHeader);
     }
     public WebElement findElement(By locator) {
+        waitForElementToBeVisible(locator);
         return PIMDriver.findElement(locator);
     }
     public void typeEmployeeName(String name) {
-
+        waitForElementToBeVisible(employeeNameField);
         PIMDriver.findElement(employeeNameField).sendKeys(name);
     }
     public void typeEmployeeId(String id) {
+        waitForElementToBeVisible(employeeIdField);
         PIMDriver.findElement(employeeIdField).sendKeys(id);
     }
     public void clickResetButton() {
+        waitForElementToBeClickable(resetButton);
         PIMDriver.findElement(resetButton).click();
     }
     public void clickSearchButton() {
+        waitForElementToBeClickable(searchButton);
         PIMDriver.findElement(searchButton).click();
     }
     public void clickAddButton() {
+        waitForElementToBeClickable(addButton);
         PIMDriver.findElement(addButton).click();
     }
     public void clickConfigDropdown() {
+        waitForElementToBeClickable(configDropdown);
         PIMDriver.findElement(configDropdown).click();
     }
     public void optionalFields() {
+        waitForElementToBeClickable(optionalFields);
         PIMDriver.findElement(optionalFields).click();
     }
     public void clickSecondPageButton() {
@@ -77,10 +91,18 @@ public class PIM {
     }
 
     public LoginPage logOut(){
+        waitForElementToBeVisible(userDropdown);
+        waitForElementToBeClickable(userDropdown);
         PIMDriver.findElement(userDropdown).click();
+        waitForElementToBeVisible(logoutMenuItem);
         waitForElementToBeClickable(logoutMenuItem);
         PIMDriver.findElement(logoutMenuItem).click();
         return new LoginPage(PIMDriver);
+    }
+
+    public void waitForElementToBeVisible(By locator){
+        WebDriverWait wait = new WebDriverWait(PIMDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void waitForElementToBeClickable(By locator){
@@ -88,14 +110,19 @@ public class PIM {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     public WebElement getFooter(){
+        waitForElementToBeVisible(paginationFooter);
         return PIMDriver.findElement(paginationFooter);
     }
     public WebElement getAddEmployeeHeader(){
+        waitForElementToBeVisible(addEmployeeHeader);
         return PIMDriver.findElement(addEmployeeHeader);
     }
     public void addEmployeeFields(String firstName, String lastName, String employeeId){
+        waitForElementToBeVisible(addFirstNameField);
         PIMDriver.findElement(addFirstNameField).sendKeys(firstName);
+        waitForElementToBeVisible(addLastNameField);
         PIMDriver.findElement(addLastNameField).sendKeys(lastName);
+        waitForElementToBeVisible(addEmployeeIdField);
         PIMDriver.findElement(addEmployeeIdField).sendKeys(employeeId);
     }
 
