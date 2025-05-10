@@ -22,10 +22,15 @@ public class PerformancePage {
     By reviewTable = By.cssSelector("table.oxd-table");
     By reviewTableRow = By.xpath("//table[@class='oxd-table']//tr");
     By reviewScore = By.xpath("//td[contains(text(),'Score')]");
+<<<<<<< HEAD
     By confgDropdown = By.xpath("//a[@id='menu_performance_Configure']//span[text()='Configure']");
     By KPI = By.xpath("//a[@id='menu_performance_addKpi']//span[text()='KPIs']");
     By Add = By.xpath("//input[@id='btnAdd' and @value='Add']");
     BY KeyPerformanceIndicator =By.xpath("//input[@id='defineKpi_keyPerformanceIndicators']");
+=======
+    By configureDropdown =By.xpath("//a[@id='menu_performance_listKpi']");
+
+>>>>>>> d41b45ee87c62efa72467751ef40e6aeb6c7805c
     // Constructor
     public PerformancePage(WebDriver driver) {
         performanceDriver = driver;
