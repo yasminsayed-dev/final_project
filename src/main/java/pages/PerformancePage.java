@@ -27,7 +27,17 @@ public class PerformancePage {
     By Add = By.xpath("//input[@id='btnAdd' and @value='Add']");
     By KeyPerformanceIndicator =By.xpath("//input[@id='defineKpi_keyPerformanceIndicators']");
     By configureDropdown =By.xpath("//a[@id='menu_performance_listKpi']");
-
+     By jobtitlefeild = By.xpath("//select[@id='defineKpi_jobTitleCode']");
+     By jobtitle =By.xpath(
+             "//select[@id='defineKpi_jobTitleCode']/option[normalize-space(.)='Automation Tester']"
+     );
+     By SaveButton = By.xpath("//input[@id='btnSave' and @value='Save']");
+     By Mytrakers =By.xpath("//input[@id='btnAdd' and @value='Add']");
+     By viewbutton  = By.xpath("//table[@id='resultTable']//tr/td[2]/a");
+     By Addlog  = By.xpath("//input[@id='btnAdd' and @value='Add']");
+     By logfield = By.xpath("//input[@id='addTracker_txtLog']");
+     By commentfield  = By.xpath("//textarea[@id='addTracker_txtComment']");
+     By savelog  = By.xpath("//input[@id='btnSave' and @value='Save']");
     // Constructor
     public PerformancePage(WebDriver driver) {
         performanceDriver = driver;
@@ -92,6 +102,48 @@ public class PerformancePage {
     public void waitForElementToBeVisible(By locator){
         WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+
+    public void Jobtitleselection () {
+        waitForElementToBeClickable(jobtitlefeild);
+        performanceDriver.findElement(jobtitlefeild).click();
+
+        waitForElementToBeClickable(jobtitle);
+        performanceDriver.findElement(jobtitle).click();
+    }
+    public void save () {
+        waitForElementToBeClickable(saveButton);
+        performanceDriver.findElement(saveButton).click();
+    }
+
+    public void Mytrakersbutton () {
+        waitForElementToBeclickable(Mytrakers);
+        performanceDriver.findElement(Mytrakers).click();
+    }
+
+    public void view () {
+        waitForElementToBeclickable(viewbutton);
+        performanceDriver.findElement(viewbutton).click();
+    }
+
+    public void Addlogbutton () {
+        waitForElementToBeclickable(Addlog);
+        performanceDriver.findElement(Addlog).click();
+    }
+
+    public void log (String Name) {
+        waitForElementToBeVisible(logfield);
+        performanceDriver.findElement(logfield).sendKeys();
+    }
+    public void comment (String Name) {
+        waitForElementToBeVisible(commentfield);
+        performanceDriver.findElement(commentfield).sendKeys();
+    }
+
+    public void save () {
+        waitForElementToBeclickable(saveButton);
+        performanceDriver.findElement(saveButton).click();
     }
 
     public WebElement getReviewTable() {
