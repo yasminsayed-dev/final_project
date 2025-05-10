@@ -15,32 +15,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.time.Duration;
 
-public class PerformanceTests {
+public class PerformanceTests extends BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
     PIM PIMPage;
     PerformancePage performancePage;
 
-    private static final String SCREENSHOT_PATH = "./";
-
-    private void saveScreenshot(String fileName) throws IOException {
-        TakesScreenshot screenshot = (TakesScreenshot) driver;
-        File screenshotFile = screenshot.getScreenshotAs(OutputType.FILE);
-        Files.copy(screenshotFile.toPath(), new File(SCREENSHOT_PATH + fileName).toPath());
-    }
-
-    @BeforeClass
-    public void start() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        loginPage = new LoginPage(driver);
-    }
 
     @Test(priority = 1)
     public void loginAsManager() throws IOException {
+        loginPage = new LoginPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
@@ -59,7 +44,7 @@ public class PerformanceTests {
     @Test(priority = 3)
     public void addPerformanceReview() throws IOException {
         performancePage.clickAddReview();
-        performancePage.fillReviewForm("John Doe", "2024-01-01", "2024-12-31", "Great performance");
+        performancePage.fillReviewForm("John Doe", "Admin", "80", "Great performance");
         performancePage.saveReview();
         //Assert.assertTrue(performancePage.isReviewSaved());
         //saveScreenshot("03_addReview.png");
@@ -86,9 +71,7 @@ public class PerformanceTests {
     @Test(priority = 6)
     public void errorOnIncompleteForm() throws IOException {
         PIMPage.logout();
-        loginPage.typeUsername("Admin");
-        loginPage.typePassword("admin123");
-        loginPage.clickLogin();
+        loginAsManager();
         performancePage = loginPage.clickPerformanceModule();
         performancePage.clickAddReview();
         performancePage.leaveRequiredFieldsEmptyAndSave();
@@ -122,14 +105,10 @@ public class PerformanceTests {
     @Test(priority = 9)
     public void preventDuplicateReview() throws IOException {
         performancePage.clickAddReview();
-        performancePage.fillReviewForm("John Doe", "2024-01-01", "2024-12-31", "Duplicate attempt");
+        performancePage.fillReviewForm("John Doe", "2024-01-01", "80", "Duplicate attempt");
         performancePage.saveReview();
         //Assert.assertTrue(performancePage.isDuplicateWarningShown());
        // saveScreenshot("09_preventDuplicate.png");
     }
 
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
 }
