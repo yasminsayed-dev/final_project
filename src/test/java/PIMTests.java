@@ -1,43 +1,14 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.Assert;
-import org.testng.annotations.* ;
+import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.PIM;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.time.Duration;
 
-public class PIMTests {
-
-    WebDriver driver;
+public class PIMTests extends BaseTest {
     LoginPage loginPage;
     PIM PIMPage;
-
-
-    private static final String SCREENSHOT_PATH = "./";
-
-    private void saveScreenshot(String fileName) throws IOException {
-        TakesScreenshot screenshot = (TakesScreenshot) driver;
-        File screenshotFile = screenshot.getScreenshotAs(OutputType.FILE);
-        Files.copy(screenshotFile.toPath(), new File(SCREENSHOT_PATH + fileName).toPath());
-    }
-
-    @BeforeClass
-    public void start() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        loginPage = new LoginPage(driver);
-    }
-
-
 
     @Test(testName = "Login with valid data Test Case", priority = 1)
     public void login() throws IOException {
@@ -53,10 +24,10 @@ public class PIMTests {
     public void dashboard() throws IOException {
         PIMPage = loginPage.clickPIMModule();
         Assert.assertTrue(
-               PIMPage.getEmployeeInfoHeader().isDisplayed(),
+                PIMPage.getEmployeeInfoHeader().isDisplayed(),
                 "Employee Information header should be visible after login"
         );
-       // saveScreenshot("screenshotDashBoard.png");
+        // saveScreenshot("screenshotDashBoard.png");
     }
 
 
@@ -112,8 +83,4 @@ public class PIMTests {
     }
 
 
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
 }
