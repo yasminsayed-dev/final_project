@@ -53,29 +53,29 @@ public class PerformancePage {
         performanceDriver.findElement(addButton).click();
     }
 
-    public void fillReviewForm(String employeeName, String supervisorName, String score, String comments) {
-        performanceDriver.findElement(employeeNameField).sendKeys(employeeName);
-        performanceDriver.findElement(supervisorField).sendKeys(supervisorName);
-        performanceDriver.findElement(reviewScoreField).sendKeys(score);
-        performanceDriver.findElement(reviewCommentsField).sendKeys(comments);
-    }
+//    public void fillReviewForm(String employeeName, String supervisorName, String score, String comments) {
+//        performanceDriver.findElement(employeeNameField).sendKeys(employeeName);
+//        performanceDriver.findElement(supervisorField).sendKeys(supervisorName);
+//        performanceDriver.findElement(reviewScoreField).sendKeys(score);
+//        performanceDriver.findElement(reviewCommentsField).sendKeys(comments);
+//    }
 
-    public void clickSaveButton() {
-        performanceDriver.findElement(saveButton).click();
-    }
+//    public void clickSaveButton() {
+//        performanceDriver.findElement(saveButton).click();
+//    }
 
-    public boolean isReviewListed() {
-        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(reviewTable));
-
-        // Check if the review is present in the table
-        return performanceDriver.findElements(reviewTableRow).size() > 0;
-    }
-
-    public boolean isReviewScoreVisible() {
-        // Verifying that the score is visible in the review table
-        return performanceDriver.findElement(reviewScore).isDisplayed();
-    }
+//    public boolean isReviewListed() {
+//        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(reviewTable));
+//
+//        // Check if the review is present in the table
+//        return performanceDriver.findElements(reviewTableRow).size() > 0;
+//    }
+//
+//    public boolean isReviewScoreVisible() {
+//        // Verifying that the score is visible in the review table
+//        return performanceDriver.findElement(reviewScore).isDisplayed();
+//    }
 
     public void waitForElementToBeClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
