@@ -1,5 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -107,7 +107,7 @@ public class PerformanceTests {
 
     @Test(priority = 8)
     public void managerEditsReview() throws IOException {
-        loginPage.logout();
+        loginPage.clickLogin();
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
