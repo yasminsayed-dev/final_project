@@ -81,7 +81,7 @@ public class PIM {
         PIMDriver.findElement(secondPageButton).click();
     }
 
-    public LoginPage logOut(){
+    public LoginPage logout(){
         waitForElementToBeVisible(userDropdown);
         waitForElementToBeClickable(userDropdown);
         PIMDriver.findElement(userDropdown).click();

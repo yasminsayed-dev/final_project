@@ -79,7 +79,7 @@ public class PIMTests extends BaseTest {
 
     @Test( testName = "logOut", priority = 9)
     public void logout() throws IOException {
-        PIMPage.logOut();
+        PIMPage.logout();
         //saveScreenshot("screenshotLogout.png");
     }
 
