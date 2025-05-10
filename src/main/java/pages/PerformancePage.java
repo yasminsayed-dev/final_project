@@ -27,17 +27,17 @@ public class PerformancePage {
     By Add = By.xpath("//input[@id='btnAdd' and @value='Add']");
     By KeyPerformanceIndicator =By.xpath("//input[@id='defineKpi_keyPerformanceIndicators']");
     By configureDropdown =By.xpath("//a[@id='menu_performance_listKpi']");
-     By jobtitlefeild = By.xpath("//select[@id='defineKpi_jobTitleCode']");
-     By jobtitle =By.xpath(
-             "//select[@id='defineKpi_jobTitleCode']/option[normalize-space(.)='Automation Tester']"
-     );
-     By SaveButton = By.xpath("//input[@id='btnSave' and @value='Save']");
-     By Mytrakers =By.xpath("//input[@id='btnAdd' and @value='Add']");
-     By viewbutton  = By.xpath("//table[@id='resultTable']//tr/td[2]/a");
-     By Addlog  = By.xpath("//input[@id='btnAdd' and @value='Add']");
-     By logfield = By.xpath("//input[@id='addTracker_txtLog']");
-     By commentfield  = By.xpath("//textarea[@id='addTracker_txtComment']");
-     By savelog  = By.xpath("//input[@id='btnSave' and @value='Save']");
+    By jobtitlefeild = By.xpath("//select[@id='defineKpi_jobTitleCode']");
+    By jobtitle =By.xpath(
+            "//select[@id='defineKpi_jobTitleCode']/option[normalize-space(.)='Automation Tester']"
+    );
+    By SaveButton = By.xpath("//input[@id='btnSave' and @value='Save']");
+    By Mytrakers =By.xpath("//input[@id='btnAdd' and @value='Add']");
+    By viewbutton  = By.xpath("//table[@id='resultTable']//tr/td[2]/a");
+    By Addlog  = By.xpath("//input[@id='btnAdd' and @value='Add']");
+    By logfield = By.xpath("//input[@id='addTracker_txtLog']");
+    By commentfield  = By.xpath("//textarea[@id='addTracker_txtComment']");
+    By savelog  = By.xpath("//input[@id='btnSave' and @value='Save']");
     // Constructor
     public PerformancePage(WebDriver driver) {
         performanceDriver = driver;

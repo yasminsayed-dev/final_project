@@ -20,7 +20,7 @@ public class LoginPage {
     //constructor
     public LoginPage(WebDriver driver) {
         loginDriver = driver;
-        }
+    }
     //Actions
 
 

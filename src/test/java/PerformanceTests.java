@@ -38,7 +38,7 @@ public class PerformanceTests extends BaseTest {
     @Test(priority = 2)
     public void openPerformanceModule() throws IOException {
         performancePage = loginPage.clickPerformanceModule();
-       // Assert.assertTrue(performancePage.isReviewPageVisible());
+        // Assert.assertTrue(performancePage.isReviewPageVisible());
         //saveScreenshot("02_openPerformance.png");
     }
 
