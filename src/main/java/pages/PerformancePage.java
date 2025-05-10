@@ -22,6 +22,7 @@ public class PerformancePage {
     By reviewTable = By.cssSelector("table.oxd-table");
     By reviewTableRow = By.xpath("//table[@class='oxd-table']//tr");
     By reviewScore = By.xpath("//td[contains(text(),'Score')]");
+    By configureDropdown =By.xpath("//a[@id='menu_performance_listKpi']");
 
     // Constructor
     public PerformancePage(WebDriver driver) {
