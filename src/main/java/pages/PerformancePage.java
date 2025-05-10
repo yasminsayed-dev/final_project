@@ -112,23 +112,23 @@ public class PerformancePage {
         waitForElementToBeClickable(jobtitle);
         performanceDriver.findElement(jobtitle).click();
     }
-    public void save () {
+    public void saveA () {
         waitForElementToBeClickable(saveButton);
         performanceDriver.findElement(saveButton).click();
     }
 
     public void Mytrakersbutton () {
-        waitForElementToBeclickable(Mytrakers);
+        waitForElementToBeClickable(Mytrakers);
         performanceDriver.findElement(Mytrakers).click();
     }
 
     public void view () {
-        waitForElementToBeclickable(viewbutton);
+        waitForElementToBeClickable(viewbutton);
         performanceDriver.findElement(viewbutton).click();
     }
 
     public void Addlogbutton () {
-        waitForElementToBeclickable(Addlog);
+        waitForElementToBeClickable(Addlog);
         performanceDriver.findElement(Addlog).click();
     }
 
@@ -142,7 +142,7 @@ public class PerformancePage {
     }
 
     public void save () {
-        waitForElementToBeclickable(saveButton);
+        waitForElementToBeClickable(saveButton);
         performanceDriver.findElement(saveButton).click();
     }
 
