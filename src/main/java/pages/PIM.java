@@ -77,9 +77,9 @@ public class PIM {
         waitForElementToBeClickable(optionalFields);
         PIMDriver.findElement(optionalFields).click();
     }
-    public void clickSecondPageButton() {
-        PIMDriver.findElement(secondPageButton).click();
-    }
+//    public void clickSecondPageButton() {
+//        PIMDriver.findElement(secondPageButton).click();
+//    }
 
     public LoginPage logout(){
         waitForElementToBeVisible(userDropdown);
@@ -100,10 +100,10 @@ public class PIM {
         WebDriverWait wait = new WebDriverWait(PIMDriver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-    public WebElement getFooter(){
-        waitForElementToBeVisible(paginationFooter);
-        return PIMDriver.findElement(paginationFooter);
-    }
+//    public WebElement getFooter(){
+//        waitForElementToBeVisible(paginationFooter);
+//        return PIMDriver.findElement(paginationFooter);
+//    }
     public WebElement getAddEmployeeHeader(){
         waitForElementToBeVisible(addEmployeeHeader);
         return PIMDriver.findElement(addEmployeeHeader);
@@ -119,20 +119,20 @@ public class PIM {
         PIMDriver.findElement(submitButton).click();
     }
 
-    public void scrollToFooterWithEnd() {
-        new Actions(PIMDriver)
-                .sendKeys(Keys.END)
-                .build()
-                .perform();
-    }
-
-    /** Scrolls until the footer element is visible. */
-    public void scrollToFooterElement() {
-        WebElement footer = PIMDriver.findElement(paginationFooter);
-        new Actions(PIMDriver)
-                .scrollToElement(footer)
-                .perform();
-    }
+//    public void scrollToFooterWithEnd() {
+//        new Actions(PIMDriver)
+//                .sendKeys(Keys.END)
+//                .build()
+//                .perform();
+//    }
+//
+//    /** Scrolls until the footer element is visible. */
+//    public void scrollToFooterElement() {
+//        WebElement footer = PIMDriver.findElement(paginationFooter);
+//        new Actions(PIMDriver)
+//                .scrollToElement(footer)
+//                .perform();
+//    }
 }
 
 

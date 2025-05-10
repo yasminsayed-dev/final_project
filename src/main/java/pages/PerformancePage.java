@@ -53,32 +53,9 @@ public class PerformancePage {
         performanceDriver.findElement(addButton).click();
     }
 
-//    public void fillReviewForm(String employeeName, String supervisorName, String score, String comments) {
-//        performanceDriver.findElement(employeeNameField).sendKeys(employeeName);
-//        performanceDriver.findElement(supervisorField).sendKeys(supervisorName);
-//        performanceDriver.findElement(reviewScoreField).sendKeys(score);
-//        performanceDriver.findElement(reviewCommentsField).sendKeys(comments);
-//    }
-
-//    public void clickSaveButton() {
-//        performanceDriver.findElement(saveButton).click();
-//    }
-
-//    public boolean isReviewListed() {
-//        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(reviewTable));
-//
-//        // Check if the review is present in the table
-//        return performanceDriver.findElements(reviewTableRow).size() > 0;
-//    }
-//
-//    public boolean isReviewScoreVisible() {
-//        // Verifying that the score is visible in the review table
-//        return performanceDriver.findElement(reviewScore).isDisplayed();
-//    }
 
     public void waitForElementToBeClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     public void KPIPage (){
@@ -94,13 +71,13 @@ public class PerformancePage {
     }
 
     public void KeyPerformanceIndicatorPage (String Name) {
-        waitForElementToBeVisible(configureDropdown);
+        waitForElementToBeVisible(KeyPerformanceIndicator);
         performanceDriver.findElement(KeyPerformanceIndicator).sendKeys();
     }
 
 
     public void waitForElementToBeVisible(By locator){
-        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
@@ -146,7 +123,7 @@ public class PerformancePage {
         performanceDriver.findElement(saveButton).click();
     }
 
-    public WebElement getReviewTable() {
-        return performanceDriver.findElement(reviewTable);
-    }
+//    public WebElement getReviewTable() {
+//        return performanceDriver.findElement(reviewTable);
+//    }
 }

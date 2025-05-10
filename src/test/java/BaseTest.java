@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.OutputType;
 import pages.LoginPage;
 import pages.PIM;
+import pages.PerformancePage;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,7 @@ public abstract class BaseTest {
 
     LoginPage loginPage;
     PIM PIMPage;
+    PerformancePage performancePage;
     /** Load driver and navigate to login page */
     @BeforeClass
     public void start() {
@@ -27,13 +29,15 @@ public abstract class BaseTest {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         loginPage = new LoginPage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
     /** Quit the driver after all tests */
-    @AfterClass
+    /*@AfterClass
     public void tearDown() {
         driver.quit();
-    }
+    }*/
 
     /** Captures and saves a screenshot with the given filename */
     protected void saveScreenshot(String fileName) {

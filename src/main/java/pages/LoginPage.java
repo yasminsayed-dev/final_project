@@ -68,7 +68,7 @@ public class LoginPage {
     }
 
     public PerformancePage clickPerformanceModule() {
-        WebElement performModule = waitForElementToBeClickable(performaceModule, 10);
+        WebElement performModule = waitForElementToBeClickable(performaceModule, 15);
         performModule.click();
         return new PerformancePage(loginDriver);
     }
