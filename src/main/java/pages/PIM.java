@@ -1,8 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,10 +20,10 @@ public class PIM {
     By searchButton    = By.cssSelector("button[type='submit']");
     By addButton       = By.xpath("//button[normalize-space(.)='Add']");
     By configDropdown  = By.xpath("//span[@class='oxd-topbar-body-nav-tab-item']");
-    By optionalFields =By.xpath("//div[@role='menu']//a[normalize-space()='Optional Fields']");
+    By optionalFields =By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
     By userDropdown = By.cssSelector("p.oxd-userdropdown-name");
     By logoutMenuItem = By.cssSelector("a[href*='logout']");
-    By paginationFooter = By.cssSelector("div.oxd-Pagination");
+    By paginationFooter = By.xpath("//footer[contains(@class,'oxd-layout-footer')]");
     By secondPageButton = By.xpath("//div[contains(@class,'oxd-Pagination')]//button[normalize-space()='2']");
     By employeeInfoHeader = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/h5");
     By addEmployeeHeader = By.xpath("//h6[text()='Add Employee']");
@@ -117,4 +119,20 @@ public class PIM {
         PIMDriver.findElement(submitButton).click();
     }
 
+    public void scrollToFooterWithEnd() {
+        new Actions(PIMDriver)
+                .sendKeys(Keys.END)
+                .build()
+                .perform();
+    }
+
+    /** Scrolls until the footer element is visible. */
+    public void scrollToFooterElement() {
+        WebElement footer = PIMDriver.findElement(paginationFooter);
+        new Actions(PIMDriver)
+                .scrollToElement(footer)
+                .perform();
+    }
 }
+
+
