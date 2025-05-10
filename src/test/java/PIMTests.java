@@ -12,6 +12,7 @@ public class PIMTests extends BaseTest {
 
     @Test(testName = "Login with valid data Test Case", priority = 1)
     public void login() throws IOException {
+        loginPage = new LoginPage(driver);
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();

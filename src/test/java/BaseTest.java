@@ -25,13 +25,9 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         loginPage = new LoginPage(driver);
     }
-//    @BeforeClass(alwaysRun = true)
-//    public void initPages() {
-//        // loginPage is already instantiated by BaseTest.start()
-//        PIMPage = loginPage.clickPIMModule();
-//    }
 
     /** Quit the driver after all tests */
     /*@AfterClass
