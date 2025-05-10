@@ -30,10 +30,10 @@ public abstract class BaseTest {
     }
 
     /** Quit the driver after all tests */
-    /*@AfterClass
+    @AfterClass
     public void tearDown() {
         driver.quit();
-    }*/
+    }
 
     /** Captures and saves a screenshot with the given filename */
     protected void saveScreenshot(String fileName) {

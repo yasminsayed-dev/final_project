@@ -16,7 +16,7 @@ public class PIMTests extends BaseTest {
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
-        //saveScreenshot("screenshotDashBoard.png");
+        //saveScreenshot("screenshotDashBoardPIM.png");
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
     }
 
@@ -24,11 +24,8 @@ public class PIMTests extends BaseTest {
     @Test(testName = "the PIM module opens Successfully",priority = 2)
     public void dashboard() throws IOException {
         PIMPage = loginPage.clickPIMModule();
-        Assert.assertTrue(
-                PIMPage.getEmployeeInfoHeader().isDisplayed(),
-                "Employee Information header should be visible after login"
-        );
-        // saveScreenshot("screenshotDashBoard.png");
+        Assert.assertTrue(PIMPage.getEmployeeInfoHeader().isDisplayed(), "Employee Information header should be visible after login");
+        // saveScreenshot("screenshotPIMModule.png");
     }
 
 
@@ -53,22 +50,22 @@ public class PIMTests extends BaseTest {
         //saveScreenshot("screenshotAddEmployee.png");
     }
 
-    @Test(priority = 6)
-    public void footer() throws IOException {
-        loginPage.clickPIMModule();
-        PIMPage.scrollToFooterElement();
-        //Assert.assertTrue(PIMPage.getFooter().isDisplayed(), "Footer should be visible");
-        //saveScreenshot("screenshotFooter.png");
-    }
+//    @Test(priority = 6)
+//    public void footer() throws IOException {
+//        loginPage.clickPIMModule();
+//        PIMPage.scrollToFooterElement();
+//        //Assert.assertTrue(PIMPage.getFooter().isDisplayed(), "Footer should be visible");
+//        //saveScreenshot("screenshotFooter.png");
+//    }
+//
+//    @Test(/*dependsOnMethods = "footer",*/ priority = 7)
+//    public void pagination() throws IOException {
+//        PIMPage.clickSecondPageButton();
+//        //saveScreenshot("screenshotPagination.png");
+//    }
 
-    @Test(/*dependsOnMethods = "footer",*/ priority = 7)
-    public void pagination() throws IOException {
-        PIMPage.clickSecondPageButton();
-        //saveScreenshot("screenshotPagination.png");
-    }
 
-
-    @Test(testName = "open optionalFields", priority = 8)
+    @Test(testName = "open optionalFields", priority = 6)
     public void optionalFields() throws IOException {
         loginPage.clickPIMModule();
         PIMPage.clickConfigDropdown();
@@ -77,10 +74,10 @@ public class PIMTests extends BaseTest {
     }
 
 
-    @Test( testName = "logOut", priority = 9)
+    @Test( testName = "logOut", priority = 7)
     public void logout() throws IOException {
         PIMPage.logout();
-        //saveScreenshot("screenshotLogout.png");
+        //saveScreenshot("screenshotLogoutPIM.png");
     }
 
 

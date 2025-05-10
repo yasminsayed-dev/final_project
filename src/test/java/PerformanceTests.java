@@ -92,11 +92,8 @@ public class PerformanceTests extends BaseTest {
 
     @Test(priority = 8)
     public void managerEditsReview() throws IOException {
-<<<<<<< HEAD:src/test/java/performanceTests.java
         loginPage.clickLogin();
-=======
         PIMPage.logout();
->>>>>>> 7232a69c6b8095f7fd34e511520c27d222389f67:src/test/java/PerformanceTests.java
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
