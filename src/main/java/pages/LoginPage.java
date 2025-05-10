@@ -44,31 +44,31 @@ public class LoginPage {
 
     public void typeUsername(String username) {
 
-        WebElement usernameField = waitForElementToBeVisible(userNameLocator, 15);
+        WebElement usernameField = waitForElementToBeVisible(userNameLocator, 10);
         usernameField.sendKeys(username);
     }
 
     public void typePassword(String password) {
 
-        WebElement passwordField = waitForElementToBeVisible(passwordLocator, 15);
+        WebElement passwordField = waitForElementToBeVisible(passwordLocator, 10);
         passwordField.sendKeys(password);
     }
 
 
     public void clickLogin() {
 
-        WebElement loginButton = waitForElementToBeClickable(buttonLocator, 15);
+        WebElement loginButton = waitForElementToBeClickable(buttonLocator, 10);
         loginButton.click();
     }
 
     public PIM clickPIMModule() {
-        WebElement pimModule = waitForElementToBeClickable(PIMModule, 15);
+        WebElement pimModule = waitForElementToBeClickable(PIMModule, 10);
         pimModule.click();
         return new PIM(loginDriver);
     }
 
     public PerformancePage clickPerformanceModule() {
-        WebElement performModule = waitForElementToBeClickable(performaceModule, 15);
+        WebElement performModule = waitForElementToBeClickable(performaceModule, 10);
         performModule.click();
         return new PerformancePage(loginDriver);
     }

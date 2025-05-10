@@ -1,8 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,37 +19,25 @@ public class PIM {
     By resetButton     = By.cssSelector("button[type='reset']");
     By searchButton    = By.cssSelector("button[type='submit']");
     By addButton       = By.xpath("//button[normalize-space(.)='Add']");
-    By configDropdown  = By.cssSelector("div.oxd-button-group > button.oxd-button--ghost");
-    By optionalFields =By.xpath("//div[@role='menu']//a[normalize-space()='Optional Fields']");
+    By configDropdown  = By.xpath("//span[@class='oxd-topbar-body-nav-tab-item']");
+    By optionalFields =By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
     By userDropdown = By.cssSelector("p.oxd-userdropdown-name");
     By logoutMenuItem = By.cssSelector("a[href*='logout']");
-    By paginationFooter = By.cssSelector("div.oxd-Pagination");
+    By paginationFooter = By.xpath("//footer[contains(@class,'oxd-layout-footer')]");
     By secondPageButton = By.xpath("//div[contains(@class,'oxd-Pagination')]//button[normalize-space()='2']");
-    By employeeInfoHeader = By.cssSelector("h5.oxd-text--h5.oxd-table-header-title");
-    By addEmployeeHeader = By.xpath("//h5[text()='Add Employee']");
+    By employeeInfoHeader = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/h5");
+    By addEmployeeHeader = By.xpath("//h6[text()='Add Employee']");
     By addFirstNameField = By.name("firstName");
     By addLastNameField = By.name("lastName");
-    By addEmployeeIdField = By.name("employeeId");
+    By submitButton= By.cssSelector("button[type='submit'].oxd-button--secondary");
 
 
 
-    // Optional locators
-    /*By jobTitleDropdown         = By.xpath("//label[text()='Job Title']/../following-sibling::div//div[contains(@class,'oxd-select-text-input')]");
-    By employmentStatusDropdown = By.xpath("//label[text()='Employment Status']/../following-sibling::div//div[contains(@class,'oxd-select-text-input')]");
-    By subUnitDropdown          = By.xpath("//label[text()='Sub Unit']/../following-sibling::div//div[contains(@class,'oxd-select-text-input')]");
-    By includeDropdown          = By.xpath("//label[text()='Include']/../following-sibling::div//div[contains(@class,'oxd-select-text-input')]");
-    By supervisorField          = By.xpath("//label[text()='Supervisor Name']/../following-sibling::div//input");
-    */
     //constructor
     public PIM(WebDriver driver) {
         PIMDriver = driver;
     }
     //Actions
-
-
-
-
-
 
 
     public WebElement getEmployeeInfoHeader() {
@@ -61,6 +51,7 @@ public class PIM {
     public void typeEmployeeName(String name) {
         waitForElementToBeVisible(employeeNameField);
         PIMDriver.findElement(employeeNameField).sendKeys(name);
+
     }
     public void typeEmployeeId(String id) {
         waitForElementToBeVisible(employeeIdField);
@@ -90,7 +81,7 @@ public class PIM {
         PIMDriver.findElement(secondPageButton).click();
     }
 
-    public LoginPage logOut(){
+    public LoginPage logout(){
         waitForElementToBeVisible(userDropdown);
         waitForElementToBeClickable(userDropdown);
         PIMDriver.findElement(userDropdown).click();
@@ -117,13 +108,31 @@ public class PIM {
         waitForElementToBeVisible(addEmployeeHeader);
         return PIMDriver.findElement(addEmployeeHeader);
     }
-    public void addEmployeeFields(String firstName, String lastName, String employeeId){
+    public void addEmployeeFields(String firstName, String lastName){
         waitForElementToBeVisible(addFirstNameField);
         PIMDriver.findElement(addFirstNameField).sendKeys(firstName);
         waitForElementToBeVisible(addLastNameField);
         PIMDriver.findElement(addLastNameField).sendKeys(lastName);
-        waitForElementToBeVisible(addEmployeeIdField);
-        PIMDriver.findElement(addEmployeeIdField).sendKeys(employeeId);
+    }
+    public void clickSubmitButton(){
+        waitForElementToBeClickable(submitButton);
+        PIMDriver.findElement(submitButton).click();
     }
 
+    public void scrollToFooterWithEnd() {
+        new Actions(PIMDriver)
+                .sendKeys(Keys.END)
+                .build()
+                .perform();
+    }
+
+    /** Scrolls until the footer element is visible. */
+    public void scrollToFooterElement() {
+        WebElement footer = PIMDriver.findElement(paginationFooter);
+        new Actions(PIMDriver)
+                .scrollToElement(footer)
+                .perform();
+    }
 }
+
+
