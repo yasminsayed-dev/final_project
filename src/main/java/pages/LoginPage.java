@@ -16,7 +16,7 @@ public class LoginPage {
     By passwordLocator=By.name("password");
     By buttonLocator=By.cssSelector("button[type='submit']");
     By PIMModule=By.xpath("//span[text()='PIM']");
-    By performaceModule=By.xpath("//span[text()='performance']");
+    By performaceModule=By.xpath("//span[text()='Performance']/ancestor::a");
     //constructor
     public LoginPage(WebDriver driver) {
         loginDriver = driver;

@@ -8,8 +8,7 @@ import pages.PIM;
 import java.io.IOException;
 
 public class PIMTests extends BaseTest {
-    LoginPage loginPage;
-    PIM PIMPage;
+
 
     @Test(testName = "Login with valid data Test Case", priority = 1, dataProvider = "loginData", dataProviderClass = TestDataProvider.class)
     public void login(String username, String password) throws IOException {

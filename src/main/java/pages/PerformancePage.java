@@ -12,17 +12,17 @@ public class PerformancePage {
     WebDriver performanceDriver;
 
     // Locators
-    By performanceReviewTab = By.xpath("//span[text()='Performance']");
-    By addButton = By.xpath("//button[normalize-space()='Add']");
-    By employeeNameField = By.cssSelector("input[placeholder='Employee Name']");
-    By supervisorField = By.cssSelector("input[placeholder='Supervisor Name']");
-    By reviewScoreField = By.cssSelector("input[placeholder='Score']");
-    By reviewCommentsField = By.cssSelector("textarea[placeholder='Comments']");
-    By saveButton = By.xpath("//button[normalize-space()='Save']");
-    By reviewTable = By.cssSelector("table.oxd-table");
-    By reviewTableRow = By.xpath("//table[@class='oxd-table']//tr");
-    By reviewScore = By.xpath("//td[contains(text(),'Score')]");
-    By confgDropdown = By.xpath("//a[@id='menu_performance_Configure']//span[text()='Configure']");
+
+//    By addButton = By.xpath("//button[normalize-space()='Add']");
+//    By employeeNameField = By.cssSelector("input[placeholder='Employee Name']");
+//    By supervisorField = By.cssSelector("input[placeholder='Supervisor Name']");
+//    By reviewScoreField = By.cssSelector("input[placeholder='Score']");
+//    By reviewCommentsField = By.cssSelector("textarea[placeholder='Comments']");
+//    By saveButton = By.xpath("//button[normalize-space()='Save']");
+//    By reviewTable = By.cssSelector("table.oxd-table");
+//    By reviewTableRow = By.xpath("//table[@class='oxd-table']//tr");
+//    By reviewScore = By.xpath("//td[contains(text(),'Score')]");
+    By confgDropdown = By.xpath("//span[text()='Configure']/ancestor::a");
     By KPI = By.xpath("//a[@id='menu_performance_addKpi']//span[text()='KPIs']");
     By Add = By.xpath("//input[@id='btnAdd' and @value='Add']");
     By KeyPerformanceIndicator =By.xpath("//input[@id='defineKpi_keyPerformanceIndicators']");
@@ -82,8 +82,8 @@ public class PerformancePage {
         performanceDriver.findElement(jobtitle).click();
     }
     public void saveA () {
-        waitForElementToBeClickable(saveButton);
-        performanceDriver.findElement(saveButton).click();
+        waitForElementToBeClickable(SaveButton);
+        performanceDriver.findElement(SaveButton).click();
     }
 
     public void Mytrakersbutton () {
@@ -111,8 +111,14 @@ public class PerformancePage {
     }
 
     public void save () {
-        waitForElementToBeClickable(saveButton);
-        performanceDriver.findElement(saveButton).click();
+        waitForElementToBeClickable(savelog);
+        performanceDriver.findElement(savelog).click();
     }
+
+//    public void clickPerformanceModule() {
+//        waitForElementToBeClickable(performanceTab);
+//        performanceDriver.findElement(performanceTab).click();
+//
+//    }
 
 }

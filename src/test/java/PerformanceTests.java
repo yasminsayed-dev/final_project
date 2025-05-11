@@ -19,9 +19,6 @@ import java.time.Duration;
 
 public class PerformanceTests extends BaseTest {
 
-    WebDriver driver;
-
-
     @Test(priority = 1)
     public void loginAsManager() throws IOException {
         loginPage = new LoginPage(driver);
@@ -37,6 +34,7 @@ public class PerformanceTests extends BaseTest {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.urlContains("dashboard"));
         performancePage = loginPage.clickPerformanceModule();
+
         // Assert.assertTrue(performancePage.isReviewPageVisible());
         //saveScreenshot("02_openPerformance.png");
     }
