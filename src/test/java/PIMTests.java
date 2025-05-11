@@ -21,14 +21,12 @@ public class PIMTests extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
     }
 
-
     @Test(testName = "the PIM module opens Successfully",priority = 2)
     public void dashboard() throws IOException {
         PIMPage = loginPage.clickPIMModule();
         Assert.assertTrue(PIMPage.getEmployeeInfoHeader().isDisplayed(), "Employee Information header should be visible after login");
         // saveScreenshot("screenshotPIMModule.png");
     }
-
 
     @Test(testName = "search Employee",priority = 3, dataProvider = "searchData", dataProviderClass = TestDataProvider.class)
     public void searchEmployee(String employeeName) throws IOException {
@@ -58,7 +56,6 @@ public class PIMTests extends BaseTest {
         PIMPage.optionalFields();
         //saveScreenshot("screenshotOptionalFields.png");
     }
-
 
     @Test( testName = "logOut", priority = 7)
     public void logout() throws IOException {

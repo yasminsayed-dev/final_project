@@ -23,8 +23,6 @@ public class PIM {
     By optionalFields = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
     By userDropdown = By.cssSelector("p.oxd-userdropdown-name");
     By logoutMenuItem = By.cssSelector("a[href*='logout']");
-    By paginationFooter = By.xpath("//footer[contains(@class,'oxd-layout-footer')]");
-    By secondPageButton = By.xpath("//div[contains(@class,'oxd-Pagination')]//button[normalize-space()='2']");
     By employeeInfoHeader = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/h5");
     By addEmployeeHeader = By.xpath("//h6[text()='Add Employee']");
     By addFirstNameField = By.name("firstName");
