@@ -29,15 +29,15 @@ public abstract class BaseTest {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         loginPage = new LoginPage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
-    /** Quit the driver after all tests */
-    /*@AfterClass
+    // Quit the driver after all tests
+    @AfterClass
     public void tearDown() {
         driver.quit();
-    }*/
+    }
 
     /** Captures and saves a screenshot with the given filename */
     protected void saveScreenshot(String fileName) {

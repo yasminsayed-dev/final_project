@@ -1,4 +1,5 @@
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -10,11 +11,11 @@ public class PIMTests extends BaseTest {
     LoginPage loginPage;
     PIM PIMPage;
 
-    @Test(testName = "Login with valid data Test Case", priority = 1)
-    public void login() throws IOException {
+    @Test(testName = "Login with valid data Test Case", priority = 1, dataProvider = "loginData", dataProviderClass = TestDataProvider.class)
+    public void login(String username, String password) throws IOException {
         loginPage = new LoginPage(driver);
-        loginPage.typeUsername("Admin");
-        loginPage.typePassword("admin123");
+        loginPage.typeUsername(username);
+        loginPage.typePassword(password);
         loginPage.clickLogin();
         //saveScreenshot("screenshotDashBoardPIM.png");
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
@@ -29,9 +30,9 @@ public class PIMTests extends BaseTest {
     }
 
 
-    @Test(testName = "search Employee",priority = 3)
-    public void searchEmployee() throws IOException {
-        PIMPage.typeEmployeeName("Admin");
+    @Test(testName = "search Employee",priority = 3, dataProvider = "searchData", dataProviderClass = TestDataProvider.class)
+    public void searchEmployee(String employeeName) throws IOException {
+        PIMPage.typeEmployeeName(employeeName);
         PIMPage.clickSearchButton();
         //saveScreenshot("screenshotSearchEmployee.png");
     }
@@ -41,29 +42,14 @@ public class PIMTests extends BaseTest {
         //saveScreenshot("screenshotResetFields.png");
     }
 
-    @Test(testName = "add Employee", priority = 5)
-    public void addEmployee() throws IOException {
+    @Test(testName = "add Employee", priority = 5, dataProvider = "employeeData", dataProviderClass = TestDataProvider.class)
+    public void addEmployee(String firstName, String lastName) throws IOException {
         PIMPage.clickAddButton();
-        PIMPage.addEmployeeFields("John", "Doe");
+        PIMPage.addEmployeeFields(firstName, lastName);
         PIMPage.clickSubmitButton();
         Assert.assertTrue( PIMPage.getAddEmployeeHeader().isDisplayed(), "Add Employee header should be visible after adding employee");
         //saveScreenshot("screenshotAddEmployee.png");
     }
-
-//    @Test(priority = 6)
-//    public void footer() throws IOException {
-//        loginPage.clickPIMModule();
-//        PIMPage.scrollToFooterElement();
-//        //Assert.assertTrue(PIMPage.getFooter().isDisplayed(), "Footer should be visible");
-//        //saveScreenshot("screenshotFooter.png");
-//    }
-//
-//    @Test(/*dependsOnMethods = "footer",*/ priority = 7)
-//    public void pagination() throws IOException {
-//        PIMPage.clickSecondPageButton();
-//        //saveScreenshot("screenshotPagination.png");
-//    }
-
 
     @Test(testName = "open optionalFields", priority = 6)
     public void optionalFields() throws IOException {

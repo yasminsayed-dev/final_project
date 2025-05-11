@@ -44,7 +44,7 @@ public class LoginPage {
 
     public void typeUsername(String username) {
 
-        WebElement usernameField = waitForElementToBeVisible(userNameLocator, 10);
+        WebElement usernameField = waitForElementToBeVisible(userNameLocator, 15);
         usernameField.sendKeys(username);
     }
 

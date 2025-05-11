@@ -25,18 +25,17 @@ public class PerformanceTests extends BaseTest {
     @Test(priority = 1)
     public void loginAsManager() throws IOException {
         loginPage = new LoginPage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.urlContains("dashboard"));
         //saveScreenshot("01_loginManager.png");
         //Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
     }
 
     @Test(priority = 2)
     public void openPerformanceModule() throws IOException {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.urlContains("dashboard"));
         performancePage = loginPage.clickPerformanceModule();
         // Assert.assertTrue(performancePage.isReviewPageVisible());
         //saveScreenshot("02_openPerformance.png");

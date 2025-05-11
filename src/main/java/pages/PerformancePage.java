@@ -45,14 +45,6 @@ public class PerformancePage {
 
     // Actions
 
-    public void goToPerformanceReviewPage() {
-        performanceDriver.findElement(performanceReviewTab).click();
-    }
-
-    public void clickAddButton() {
-        performanceDriver.findElement(addButton).click();
-    }
-
 
     public void waitForElementToBeClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(performanceDriver, Duration.ofSeconds(15));
@@ -123,7 +115,4 @@ public class PerformancePage {
         performanceDriver.findElement(saveButton).click();
     }
 
-//    public WebElement getReviewTable() {
-//        return performanceDriver.findElement(reviewTable);
-//    }
 }
