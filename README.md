@@ -42,7 +42,7 @@ Prerequisites
 •	Chrome browser installed.
 •	ChromeDriver compatible with your Chrome version.
 Setup Instructions
-1.	Clone the repository:
+1.	Clone the repository: 
 2.	https://github.com/yasminsayed-dev/final_project.git
 Excel xlsx File
 manual final project .xlsx
