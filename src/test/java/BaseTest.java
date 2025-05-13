@@ -7,6 +7,7 @@ import org.testng.annotations.*;
 import pages.LoginPage;
 import pages.PIM;
 import pages.PerformancePage;
+import pages.RecruitmentPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,8 @@ public abstract class BaseTest {
     public static WebDriverWait wait;
     private static final String SCREENSHOT_PATH = "./";
 
+
+    RecruitmentPage recruitmentPage;
     LoginPage loginPage;
     PIM PIMPage;
     PerformancePage performancePage;
