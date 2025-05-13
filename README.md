@@ -5,6 +5,7 @@ Introduction
 This repository is dedicated to testing the Orange HRM (Human Resource Management) platform. The project aims to explore and implement different software testing methodologies to ensure the system's functionality, security, and performance. As we progress, we will design test cases, automate testing processes, and document findings to enhance the overall quality of the Orange HRM platform.
 
 Group 1 Members
+
 •	Yasmin Sayed Khalifa
 
 •	Anan Mohamed Abdelkader
