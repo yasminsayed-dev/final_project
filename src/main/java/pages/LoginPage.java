@@ -17,6 +17,7 @@ public class LoginPage {
     By buttonLocator=By.cssSelector("button[type='submit']");
     By PIMModule=By.xpath("//span[text()='PIM']");
     By performaceModule=By.xpath("//span[text()='Performance']/ancestor::a");
+    By RECRUITMENT_TAB = By.xpath("//span[text()='Recruitment']/parent::a");
     //constructor
     public LoginPage(WebDriver driver) {
         loginDriver = driver;
@@ -71,5 +72,10 @@ public class LoginPage {
         WebElement performModule = waitForElementToBeClickable(performaceModule, 15);
         performModule.click();
         return new PerformancePage(loginDriver);
+    }
+    public RecruitmentPage clickRecruitmentModule() {
+        WebElement recruitmentModule = waitForElementToBeClickable(RECRUITMENT_TAB, 15);
+        recruitmentModule.click();
+        return new RecruitmentPage(loginDriver);
     }
     }
