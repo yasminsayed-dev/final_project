@@ -2,60 +2,90 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class RecruitmentPage {
-    WebDriver recruitmentDriver;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     // Locators
-    By RECRUITMENT_TAB = By.xpath("//span[text()='Recruitment']/parent::a");
-    By CANDIDATES_OPTION = By.xpath("//a[text()='Candidates']");
-    By ADD_BUTTON = By.xpath("//button[text()=' Add ']");
-    By FIRST_NAME = By.name("firstName");
-    By LAST_NAME = By.name("lastName");
-    By EMAIL = By.xpath("//label[text()='Email']/following::input[1]");
-    By SAVE_BUTTON = By.xpath("//button[@type='submit']");
-    By VACANCIES_OPTION = By.xpath("//a[text()='Vacancies']");
-    By ADD_VACANCY_BUTTON = By.xpath("//button[text()=' Add ']");
-    By VACANCY_NAME = By.xpath("//label[text()='Vacancy Name']/following::input[1]");
-    By HIRING_MANAGER = By.xpath("//label[text()='Hiring Manager']/following::input[1]");
-    By JOB_TITLE_DROPDOWN = By.xpath("//label[text()='Job Title']/following::div[contains(@class,'oxd-select-text')][1]");
-    By JOB_TITLE_OPTION = By.xpath("//div[@role='option']/span[contains(text(),'Software Engineer')]");
+    private final By recruitmentTab = By.xpath("//span[text()='Recruitment']/parent::a");
+    private final By candidatesOption = By.xpath("//a[text()='Candidates']");
+    private final By addButton = By.xpath("//button[text()=' Add ']");
+    private final By firstName = By.name("firstName");
+    private final By lastName = By.name("lastName");
+    private final By email = By.xpath("//div[label[text()='Email']]//input");
+    private final By saveButton = By.xpath("//button[@type='submit']");
+    private final By vacanciesOption = By.xpath("//a[text()='Vacancies']");
+    private final By addVacancyButton = By.xpath("(//button[text()=' Add '])[2]");
+    private final By vacancyName = By.xpath("//label[text()='Vacancy Name']/following::input[1]");
+    private final By jobTitleDropdown = By.xpath("//label[text()='Job Title']/following::div[contains(@class,'oxd-select-text')][1]");
+    private final By jobTitleOption = By.xpath("//div[@role='option']/span[text()='Software Engineer']");
+    private final By hiringManager = By.xpath("//label[text()='Hiring Manager']/following::input[1]");
 
     public RecruitmentPage(WebDriver driver) {
-        recruitmentDriver = driver;
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // Actions
-    public void goToRecruitmentTab() {
-        recruitmentDriver.findElement(RECRUITMENT_TAB).click();
+    public void clickRecruitmentTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(recruitmentTab)).click();
     }
 
-    public void goToCandidates() {
-        recruitmentDriver.findElement(CANDIDATES_OPTION).click();
+    public boolean isCandidatesOptionVisible() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(candidatesOption)).isDisplayed();
     }
 
-    public void addCandidate(String fName, String lName, String mail) {
-        recruitmentDriver.findElement(ADD_BUTTON).click();
-        recruitmentDriver.findElement(FIRST_NAME).sendKeys(fName);
-        recruitmentDriver.findElement(LAST_NAME).sendKeys(lName);
-        recruitmentDriver.findElement(EMAIL).sendKeys(mail);
-        recruitmentDriver.findElement(SAVE_BUTTON).click();
+    public boolean isVacanciesOptionVisible() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(vacanciesOption)).isDisplayed();
     }
 
-    public void goToVacancies() {
-        goToRecruitmentTab();
-        recruitmentDriver.findElement(VACANCIES_OPTION).click();
+    public void navigateToCandidates() {
+        clickRecruitmentTab();
+        wait.until(ExpectedConditions.elementToBeClickable(candidatesOption)).click();
     }
 
-    public void addVacancy(String vName, String manager) {
-        recruitmentDriver.findElement(ADD_VACANCY_BUTTON).click();
-        recruitmentDriver.findElement(VACANCY_NAME).sendKeys(vName);
-        recruitmentDriver.findElement(JOB_TITLE_DROPDOWN).click();
-        recruitmentDriver.findElement(JOB_TITLE_OPTION).click();
-        recruitmentDriver.findElement(HIRING_MANAGER).sendKeys(manager);
-        recruitmentDriver.findElement(SAVE_BUTTON).click();
+    public void clickAddButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(addButton)).click();
+    }
+
+    public void enterFirstName(String name) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstName)).sendKeys(name);
+    }
+
+    public void enterLastName(String name) {
+        driver.findElement(lastName).sendKeys(name);
+    }
+
+    public void enterEmail(String emailText) {
+        driver.findElement(email).sendKeys(emailText);
+    }
+
+    public void clickSaveButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+    }
+
+    public void navigateToVacancies() {
+        clickRecruitmentTab();
+        wait.until(ExpectedConditions.elementToBeClickable(vacanciesOption)).click();
+    }
+
+    public void clickAddVacancyButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(addVacancyButton)).click();
+    }
+
+    public void enterVacancyName(String name) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(vacancyName)).sendKeys(name);
+    }
+
+    public void selectJobTitle() {
+        wait.until(ExpectedConditions.elementToBeClickable(jobTitleDropdown)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(jobTitleOption)).click();
+    }
+
+    public void enterHiringManager(String manager) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(hiringManager)).sendKeys(manager);
     }
 }
