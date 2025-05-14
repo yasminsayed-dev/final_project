@@ -90,7 +90,7 @@ Setup Instructions
    
 https://github.com/yasminsayed-dev/final_project.git
    
-Excel xlsx File
+Manual Testing xlsx File
 
 [manual final project .xlsx](https://womenasuedu-my.sharepoint.com/:x:/g/personal/30609170102869_std_women_asu_edu_eg/EdsZcytet31Gr8VEi0GnMu4BEIIE4N2ik8Lwj1r_G16Mgw?e=vjvo9f)
 
@@ -100,7 +100,7 @@ Bug Report
 
 Test Summary Report
 
-Test_Summary_Report.pdf
+[Test_Summary_Report.pdf](https://womenasuedu-my.sharepoint.com/:b:/g/personal/30609170102869_std_women_asu_edu_eg/EfkagPaBL8JOq8XRekvuJAQBtVVrMQ6DuBvlpPXVlKWPTQ?e=I4vFWA)
 
 Presentation
 
