@@ -16,7 +16,7 @@ public class PIMTests extends BaseTest {
         loginPage.typeUsername(username);
         loginPage.typePassword(password);
         loginPage.clickLogin();
-        //saveScreenshot("screenshotDashBoardPIM.png");
+        saveScreenshot("screenshotDashBoardPIM.png");
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
     }
 
@@ -24,19 +24,19 @@ public class PIMTests extends BaseTest {
     public void dashboard() throws IOException {
         PIMPage = loginPage.clickPIMModule();
         Assert.assertTrue(PIMPage.getEmployeeInfoHeader().isDisplayed(), "Employee Information header should be visible after login");
-        // saveScreenshot("screenshotPIMModule.png");
+        saveScreenshot("screenshotPIMModule.png");
     }
 
     @Test(testName = "search Employee",priority = 3, dataProvider = "searchData", dataProviderClass = TestDataProvider.class)
     public void searchEmployee(String employeeName) throws IOException {
         PIMPage.typeEmployeeName(employeeName);
         PIMPage.clickSearchButton();
-        //saveScreenshot("screenshotSearchEmployee.png");
+        saveScreenshot("screenshotSearchEmployee.png");
     }
     @Test(testName = "reset fields",priority = 4)
     public void resetFields() throws IOException {
         PIMPage.clickResetButton();
-        //saveScreenshot("screenshotResetFields.png");
+        saveScreenshot("screenshotResetFields.png");
     }
 
     @Test(testName = "add Employee", priority = 5, dataProvider = "employeeData", dataProviderClass = TestDataProvider.class)
@@ -45,7 +45,7 @@ public class PIMTests extends BaseTest {
         PIMPage.addEmployeeFields(firstName, lastName);
         PIMPage.clickSubmitButton();
         Assert.assertTrue( PIMPage.getAddEmployeeHeader().isDisplayed(), "Add Employee header should be visible after adding employee");
-        //saveScreenshot("screenshotAddEmployee.png");
+        saveScreenshot("screenshotAddEmployee.png");
     }
 
     @Test(testName = "open optionalFields", priority = 6)
@@ -53,13 +53,13 @@ public class PIMTests extends BaseTest {
         loginPage.clickPIMModule();
         PIMPage.clickConfigDropdown();
         PIMPage.optionalFields();
-        //saveScreenshot("screenshotOptionalFields.png");
+        saveScreenshot("screenshotOptionalFields.png");
     }
 
     @Test( testName = "logOut", priority = 7)
     public void logout() throws IOException {
         PIMPage.logout();
-        //saveScreenshot("screenshotLogoutPIM.png");
+        saveScreenshot("screenshotLogoutPIM.png");
     }
 
 
