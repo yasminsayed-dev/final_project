@@ -25,8 +25,8 @@ public class PerformanceTests extends BaseTest {
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
-        //saveScreenshot("01_loginManager.png");
-        //Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
+        saveScreenshot("01_loginManager.png");
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
     }
 
     @Test(priority = 2)
@@ -35,8 +35,7 @@ public class PerformanceTests extends BaseTest {
                 .until(ExpectedConditions.urlContains("dashboard"));
         performancePage = loginPage.clickPerformanceModule();
 
-        // Assert.assertTrue(performancePage.isReviewPageVisible());
-        //saveScreenshot("02_openPerformance.png");
+        saveScreenshot("02_openPerformance.png");
     }
 
     @Test(priority = 3)
@@ -46,8 +45,7 @@ public class PerformanceTests extends BaseTest {
         performancePage.KeyPerformanceIndicatorPage("jade");
         performancePage.Jobtitleselection();
         performancePage.saveA();
-        //Assert.assertTrue(performancePage.isReviewSaved());
-        //saveScreenshot("03_addReview.png");
+        saveScreenshot("03_addReview.png");
     }
 
     @Test(priority = 4)
@@ -58,13 +56,12 @@ public class PerformanceTests extends BaseTest {
         performancePage.log("test");
         performancePage.comment("Nice");
         performancePage.save();
-        //Assert.assertTrue(performancePage.isReviewVisibleToEmployee());
-        //saveScreenshot("04_employeeView.png");
+        saveScreenshot("04_employeeView.png");
     }
         @Test( testName = "logOut", priority = 6)
     public void logout() throws IOException {
         PIMPage.logout();
-        //saveScreenshot("screenshotLogoutPIM.png");
+        saveScreenshot("screenshotLogoutPIM.png");
     }
 
 }
