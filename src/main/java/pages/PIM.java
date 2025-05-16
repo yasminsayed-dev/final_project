@@ -15,7 +15,6 @@ public class PIM {
     WebDriver PIMDriver;
     //Locators
     By employeeNameField = By.cssSelector("input[placeholder='Type for hints...']");
-    By employeeIdField = By.cssSelector("input[placeholder='Employee Id']");
     By resetButton = By.cssSelector("button[type='reset']");
     By searchButton = By.cssSelector("button[type='submit']");
     By addButton = By.xpath("//button[normalize-space(.)='Add']");
