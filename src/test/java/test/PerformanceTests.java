@@ -50,6 +50,7 @@ public class PerformanceTests extends BaseTest {
         performancePage.save();
         saveScreenshot("04_employeeView.png");
     }
+
         @Test( testName = "logOut", priority = 6)
     public void logout() throws IOException {
         PIMPage.logout();
