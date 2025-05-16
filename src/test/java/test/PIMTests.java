@@ -1,9 +1,8 @@
+package test;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.PIM;
 
 import java.io.IOException;
 
@@ -12,12 +11,12 @@ public class PIMTests extends BaseTest {
 
     @Test(testName = "Login with valid data Test Case", priority = 1, dataProvider = "loginData", dataProviderClass = TestDataProvider.class)
     public void login(String username, String password) throws IOException {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(BaseTest.driver);
         loginPage.typeUsername(username);
         loginPage.typePassword(password);
         loginPage.clickLogin();
         saveScreenshot("screenshotDashBoardPIM.png");
-        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
+        Assert.assertTrue(BaseTest.driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
     }
 
     @Test(testName = "the PIM module opens Successfully",priority = 2)

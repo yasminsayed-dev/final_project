@@ -32,17 +32,17 @@ Automation Project Structure
 
 •	src/test/java/tests: Contains all test classes.
 
-o	BaseTest.java: Sets up and tears down the WebDriver for each test.
+o	test.BaseTest.java: Sets up and tears down the WebDriver for each test.
 
-o	PIMTests.java: Tests related to the PIM Module.
+o	test.PIMTests.java: Tests related to the PIM Module.
 
-o	AdminTests.java: Tests for the User Management module.
+o	test.AdminTests.java: Tests for the User Management module.
 
-o	RecruitmentTests.java: Tests for the Recruitment module.
+o	test.RecruitmentTests.java: Tests for the Recruitment module.
 
 o	LeaveTests.java: Tests for the Leave module.
 
-o	PerformanceTests.java:Tests for the Performance Module.
+o	test.PerformanceTests.java:Tests for the Performance Module.
 
 •	src/main/java/pages: Page Object Model (POM) classes for different pages.
 

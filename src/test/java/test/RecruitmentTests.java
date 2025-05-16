@@ -1,3 +1,5 @@
+package test;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -8,12 +10,12 @@ public class RecruitmentTests extends BaseTest {
 
     @Test(priority = 1)
     public void testVerifyRecruitmentSection() throws IOException {
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(BaseTest.driver);
         loginPage.typeUsername("Admin");
         loginPage.typePassword("admin123");
         loginPage.clickLogin();
 
-        RecruitmentPage recruitmentPage = new RecruitmentPage(driver);
+        RecruitmentPage recruitmentPage = new RecruitmentPage(BaseTest.driver);
         recruitmentPage.clickRecruitmentTab();
 
         boolean candidatesExists = recruitmentPage.isCandidatesOptionVisible();
@@ -27,7 +29,7 @@ public class RecruitmentTests extends BaseTest {
 
     @Test(priority = 2)
     public void testAddCandidate() throws IOException {
-        RecruitmentPage recruitmentPage = new RecruitmentPage(driver);
+        RecruitmentPage recruitmentPage = new RecruitmentPage(BaseTest.driver);
         recruitmentPage.navigateToCandidates();
         recruitmentPage.clickAddButton();
 
@@ -41,7 +43,7 @@ public class RecruitmentTests extends BaseTest {
 
     @Test(priority = 3)
     public void testAddVacancy() throws IOException {
-        RecruitmentPage recruitmentPage = new RecruitmentPage(driver);
+        RecruitmentPage recruitmentPage = new RecruitmentPage(BaseTest.driver);
         recruitmentPage.navigateToVacancies();
         recruitmentPage.clickAddVacancyButton();
 
