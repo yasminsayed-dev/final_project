@@ -20,7 +20,7 @@ public class LeaveTests extends BaseTest {
         Assert.assertTrue(BaseTest.driver.getCurrentUrl().contains("dashboard"), "Dashboard should be displayed after login");
     }
 
-    @Test
+    @Test(priority = 2)
     public void TC01_validLeaveSubmission() {
         LeavePage leavePage = new LeavePage(driver);
         leavePage.navigateToApplyLeave();
@@ -30,7 +30,7 @@ public class LeaveTests extends BaseTest {
         Assert.assertEquals(leavePage.getLatestLeaveStatus(), "Pending Approval");
     }
 
-    @Test
+    @Test (priority = 3)
     public void TC02_missingLeaveType() {
         LeavePage leavePage = new LeavePage(driver);
         leavePage.navigateToApplyLeave();
@@ -40,7 +40,7 @@ public class LeaveTests extends BaseTest {
         Assert.assertTrue(leavePage.getLatestLeaveStatus().contains("Required"), "Leave type error missing");
     }
 
-    @Test
+    @Test( priority = 4)
     public void TC03_missingDates() {
         LeavePage leavePage = new LeavePage(driver);
         leavePage.navigateToApplyLeave();
@@ -49,7 +49,7 @@ public class LeaveTests extends BaseTest {
         Assert.assertEquals(leavePage.getDateErrorCount(), 2, "Date errors count mismatch");
     }
 
-    @Test
+    @Test (priority = 5)
     public void TC07_singleDayLeave() {
         LeavePage leavePage = new LeavePage(driver);
         leavePage.navigateToApplyLeave();
