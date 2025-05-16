@@ -20,10 +20,10 @@ public class PIM {
     By searchButton = By.cssSelector("button[type='submit']");
     By addButton = By.xpath("//button[normalize-space(.)='Add']");
     By configDropdown = By.xpath("//span[@class='oxd-topbar-body-nav-tab-item']");
-    By optionalFields = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
+    By optionalFields = By.xpath("//a[contains(@class,'oxd-topbar-body-nav-tab-link') and normalize-space(.)='Optional Fields']");
     By userDropdown = By.cssSelector("p.oxd-userdropdown-name");
     By logoutMenuItem = By.cssSelector("a[href*='logout']");
-    By employeeInfoHeader = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/h5");
+    By employeeInfoHeader = By.xpath("//h5[normalize-space(.)='Employee Information']");
     By addEmployeeHeader = By.xpath("//h6[text()='Add Employee']");
     By addFirstNameField = By.name("firstName");
     By addLastNameField = By.name("lastName");
